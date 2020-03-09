@@ -6,6 +6,7 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={App} />
+      <Route exact path='/new-contact' component={NewContactForm} />
     </Switch>
   </BrowserRouter>
 )
