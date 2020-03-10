@@ -22,7 +22,6 @@ class NewContactForm extends React.Component {
 
   createContact = (event) => {
     event.preventDefault();
-    // create new contact
     const contact = {
       first_name: this.first_nameRef.current.value,
       last_name: this.last_nameRef.current.value,
@@ -30,7 +29,6 @@ class NewContactForm extends React.Component {
       phone_number: this.phone_numberRef.current.value,
     }
     this.addContact(contact);
-    // redirecting to home
     this.props.history.push(`/`)
   }
 

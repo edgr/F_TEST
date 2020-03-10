@@ -1,7 +1,12 @@
 class Api::V1::ContactsController < ApplicationController
   def index
     @contacts = Contact.all
-    render json: @contacts, only: %i[id first_name last_name email phone_number]
+    render json: @contacts, only: %i[id first_name last_name email]
+  end
+
+  def show
+    @contact = Contact.find(params[:id])
+    render json: @contact, only: %i[id first_name last_name email phone_number]
   end
 
   def create

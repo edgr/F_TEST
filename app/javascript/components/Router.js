@@ -4,14 +4,16 @@ import App from './App';
 import NewContactForm from './NewContactForm';
 import Contact from './Contact';
 import NotFound from './NotFound';
+import EditContact from './EditContact';
 
 const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={App} />
       <Route exact path='/new-contact' component={NewContactForm} />
-      <Route exact path='/contact/:contactId' component={Contact} />
-      <Route component={NotFound}/>
+      <Route exact path='/contacts/:contactId' component={Contact} />
+      <Route exact path='/contacts/:contactId/edit' component={EditContact} />
+      <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
 )
