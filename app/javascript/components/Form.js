@@ -24,13 +24,16 @@ class Form extends React.Component {
 
   render () {
     return (
-      <form className="form" onSubmit={this.handleForm}>
-        <input defaultValue={this.props.first_name} name="first_name" ref={this.first_nameRef} type="text" placeholder="first name" required/>
-        <input defaultValue={this.props.last_name} name="last_name" ref={this.last_nameRef} type="text" placeholder="last name" required/>
-        <input defaultValue={this.props.email} name="email" ref={this.emailRef} type="text" placeholder="email" required/>
-        <input defaultValue={this.props.phone_number} name="phone_number" ref={this.phone_numberRef} type="text" placeholder="phone number" required/>
-        <input type="submit" value={this.props.value}/>
-      </form>
+      <div className="form">
+        <h2>{this.props.title}</h2>
+        <form onSubmit={this.handleForm}>
+          <input defaultValue={this.props.first_name} name="first_name" ref={this.first_nameRef} type="text" placeholder="first name" required/>
+          <input defaultValue={this.props.last_name} name="last_name" ref={this.last_nameRef} type="text" placeholder="last name" required/>
+          <input defaultValue={this.props.email} name="email" ref={this.emailRef} type="text" placeholder="email" required/>
+          <input defaultValue={this.props.phone_number} name="phone_number" ref={this.phone_numberRef} type="text" placeholder="phone number" required/>
+          <input type="submit" value={this.props.value}/>
+        </form>
+      </div>
     )
   }
 }

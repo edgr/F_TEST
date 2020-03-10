@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import NewContact from './NewContact';
 import Contact from './Contact';
-import NotFound from './NotFound';
 import EditContact from './EditContact';
+import NotFound from './NotFound';
 
 const Router = () => (
   <BrowserRouter>

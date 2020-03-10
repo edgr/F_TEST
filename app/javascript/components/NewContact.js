@@ -23,7 +23,7 @@ class NewContact extends React.Component {
 
   render () {
     return (
-      <Form addContact={this.addContact} value="Add Contact" />
+      <Form addContact={this.addContact} title="Add a new contact" value="Add Contact" />
     )
   }
 }

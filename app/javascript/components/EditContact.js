@@ -38,6 +38,7 @@ class EditContact extends React.Component {
         email={email}
         phone_number={phone_number}
         updateContact={this.updateContact}
+        title="Edit contact"
         value="Update Contact"
       />
     )
