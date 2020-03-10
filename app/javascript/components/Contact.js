@@ -5,7 +5,7 @@ class Contact extends React.Component {
     contact: []
   }
 
-  url = `/api/v1/contacts/${this.props.match.params.contactId}.json`
+  url = `/api/v1/contacts/${this.props.match.params.id}.json`
 
   componentDidMount(){
     fetch(this.url)
