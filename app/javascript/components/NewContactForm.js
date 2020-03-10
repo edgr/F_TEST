@@ -1,33 +1,40 @@
 import React from 'react'
 
 class NewContactForm extends React.Component {
-  state = {
-    contacts: {}
-  }
-
   first_nameRef = React.createRef();
   last_nameRef = React.createRef();
   emailRef = React.createRef();
   phone_numberRef = React.createRef();
 
+  addContact = (contact) => {
+    const body = JSON.stringify({
+      first_name: contact.first_name,
+      last_name: contact.last_name,
+      email: contact.email,
+      phone_number: contact.phone_number
+    })
+    fetch('/api/v1/contacts.json', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: body
+    }).then((response) => {return response.json()})
+  }
+
   createContact = (event) => {
-    {/* preventing default behavior */}
     event.preventDefault();
-    {/* create new contact */}
+    // create new contact
     const contact = {
       first_name: this.first_nameRef.current.value,
       last_name: this.last_nameRef.current.value,
       email: this.emailRef.current.value,
       phone_number: this.phone_numberRef.current.value,
     }
-    // copy of state
-    const contacts = {...this.state.contacts}
-    // adding the contact with unique ID
-    contacts[`contact${Date.now()}`] = contact
-    // update state
-    this.setState({ contacts })
-    {/* redirecting to home */}
+    this.addContact(contact);
+    // redirecting to home
+    this.props.history.push(`/`)
   }
+
+
   render () {
     return (
       <form action="" className="new-contact-form" onSubmit={this.createContact}>
