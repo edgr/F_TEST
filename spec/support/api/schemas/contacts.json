@@ -1,0 +1,67 @@
+{
+    "type": "array",
+    "title": "List of contacts",
+    "items": {
+        "$id": "#/items",
+        "type": "object",
+        "title": "A contact",
+        "description": "A contact of the list",
+        "default": {},
+        "examples": [
+            {
+                "email": "carlos.gibson@kilbacklarkin.io",
+                "id": 1.0,
+                "first_name": "Sandi",
+                "last_name": "Schulist"
+            }
+        ],
+        "required": [
+            "id",
+            "first_name",
+            "last_name",
+            "email"
+        ],
+        "properties": {
+            "id": {
+                "$id": "#/items/properties/id",
+                "type": "integer",
+                "title": "The contact Id",
+                "description": "An explanation about the purpose of this instance.",
+                "default": 0,
+                "examples": [
+                    1
+                ]
+            },
+            "first_name": {
+                "$id": "#/items/properties/first_name",
+                "type": "string",
+                "title": "The contact first name",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "Sandi"
+                ]
+            },
+            "last_name": {
+                "$id": "#/items/properties/last_name",
+                "type": "string",
+                "title": "The contact last name",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "Schulist"
+                ]
+            },
+            "email": {
+                "$id": "#/items/properties/email",
+                "type": "string",
+                "title": "The contact email",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "carlos.gibson@kilbacklarkin.io"
+                ]
+            }
+        }
+    }
+}
