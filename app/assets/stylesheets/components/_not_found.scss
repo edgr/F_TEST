@@ -1,0 +1,9 @@
+.not-found {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  .center-page {
+    text-align: center;
+  }
+}
