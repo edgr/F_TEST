@@ -34,26 +34,71 @@ RSpec.describe Api::V1::ContactsController, type: :controller do
       expect(json['phone_number']).to eq('123456789')
     end
   end
-  describe 'POST create' do
-    before(:each) do
+  describe 'POST' do
+    it 'adds a user to the database' do
+      initial_count = Contact.count
       contact = build(:contact)
-      contact_params = {
+      post :create, params: {
         contact: {
           first_name: contact.first_name,
           last_name: contact.last_name,
           email: contact.email,
-          phone_number: contact.phone_number
+          phone_number: contact.phone_number,
         }
       }
-      post :create, params: { contact: contact_params }
+      final_count = Contact.count
+      expect(final_count).to eq(initial_count + 1)
     end
     it 'returns http success response' do
-      json = JSON.parse(response.body)
-      expect(response.status).to eq 200
+      contact = build(:contact)
+      post :create, params: {
+        contact: {
+          first_name: contact.first_name,
+          last_name: contact.last_name,
+          email: contact.email,
+          phone_number: contact.phone_number,
+        }
+      }
+      expect(response.status).to eq 204
     end
-    it 'adds a user to the database' do
-      contact = Contact.all.size
-      expect(contact).to eq(contact + 1)
+  end
+  describe 'DELETE' do
+    before(:each) do
+      5.times { create(:other_contact) }
+      contact = Contact.last
+      delete :destroy, params: { id: contact.id }
+    end
+    it 'removes a contact from the db' do
+      expect(Contact.count).to eq 4
+    end
+
+    it 'returns a status ok' do
+      expect(response.status).to eq 204
+    end
+  end
+  describe 'UPDATE' do
+    before(:each) do
+      @contact = create(:contact)
+      patch :update, params: {
+        id: @contact.id,
+        contact: {
+          first_name: 'Bobby',
+          last_name: 'Bobson',
+          email: 'a@a.a',
+          phone_number: 'xyz'
+        }
+      }
+    end
+    it 'updates the instance' do
+      get :show, params: { id: @contact.id }
+      json = JSON.parse(response.body)
+      expect(json['first_name']).to eq 'Bobby'
+      expect(json['last_name']).to eq 'Bobson'
+      expect(json['email']).to eq 'a@a.a'
+      expect(json['phone_number']).to eq 'xyz'
+    end
+    it 'returns a success status' do
+      expect(response.status).to eq 204
     end
   end
 end

@@ -11,7 +11,6 @@ class Api::V1::ContactsController < ApplicationController
 
   def create
     @contact = Contact.create(contact_params)
-    render json: @contact, only: %i[id first_name last_name email phone_number]
   end
 
   def destroy
@@ -20,7 +19,7 @@ class Api::V1::ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
-    @contact.update_attributes(contact_params)
+    @contact.update(contact_params)
   end
 
   private
