@@ -1,0 +1,11 @@
+@import "config/colors";
+@import "config/fonts";
+
+@import "components/index";
+
+.main {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}

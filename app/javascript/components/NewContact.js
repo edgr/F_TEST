@@ -1,5 +1,7 @@
 import React from 'react';
 import Form from './Form';
+import Header from './Header';
+import BackHome from './BackHome';
 
 
 class NewContact extends React.Component {
@@ -23,7 +25,11 @@ class NewContact extends React.Component {
 
   render () {
     return (
-      <Form addContact={this.addContact} title="Add a new contact" value="Add Contact" />
+      <div className="main">
+        <Header title={"add a new contact"} />
+        <Form addContact={this.addContact} value="add contact" />
+        <BackHome />
+      </div>
     )
   }
 }

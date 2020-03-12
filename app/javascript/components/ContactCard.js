@@ -9,7 +9,7 @@ class ContactCard extends React.Component {
 
   render () {
     return (
-      <a onClick={this.showContact}>
+      <a className="contact-card" onClick={this.showContact}>
         <h2 className="name">{this.props.first_name} {this.props.last_name}</h2>
         <p className="email">{this.props.email}</p>
       </a>

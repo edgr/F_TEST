@@ -1,4 +1,5 @@
 import React from 'react';
+import BackHome from './BackHome';
 
 class Contact extends React.Component {
   state = {
@@ -20,10 +21,13 @@ class Contact extends React.Component {
 
   deleteContact = (event) => {
     event.preventDefault();
-    fetch(this.url, {
-      method: 'DELETE',
-    });
-    this.props.history.push('/')
+    const answer = confirm('Are you sure?')
+    if (answer) {
+      fetch(this.url, {
+        method: 'DELETE',
+      });
+      this.props.history.push('/')
+    }
   }
 
   render () {
@@ -33,8 +37,11 @@ class Contact extends React.Component {
         <h2>{first_name} {last_name}</h2>
         <p>{email}</p>
         <p>{phone_number}</p>
-        <a onClick={this.editContact}>Edit</a>
-        <a onClick={this.deleteContact}>Delete</a>
+        <div className="buttons">
+          <a className="button" onClick={this.editContact}>Edit</a>
+          <a className="button button-reverse" onClick={this.deleteContact}>Delete</a>
+        </div>
+        <BackHome />
       </div>
     )
   }
