@@ -8,6 +8,12 @@
     &:focus {
       outline: 1px solid $purple;
     }
+    &.red {
+      outline: 1px solid red;
+    }
+    &.green {
+      outline: 1px solid green;
+    }
   }
   button {
     cursor: pointer;
