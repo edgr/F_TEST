@@ -1,0 +1,34 @@
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .contact-card {
+    cursor: pointer;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    h2, p {
+      margin: 0;
+    }
+  }
+}
+
+@media all and(min-width: 576px) {
+  .contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    .contact-card {
+      width: unset;
+    }
+  }
+}
+
+
+@media all and(min-width: 768px) {
+  .contacts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

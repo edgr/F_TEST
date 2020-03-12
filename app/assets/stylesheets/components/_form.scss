@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input[type='text'] {
+    padding: 12px 8px;
+    margin-bottom: 8px;
+    &:focus {
+      outline: 1px solid $purple;
+    }
+  }
+  button {
+    cursor: pointer;
+    padding: 12px 8px;
+    margin: 8px 0;
+    background-color: $purple;
+    border: 1px solid $purple;
+    border-radius: 100rem;
+    color: white;
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .form {
+    width: 600px;
+    margin: auto;
+    button {
+      width: 50%;
+      align-self: center;
+    }
+  }
+}

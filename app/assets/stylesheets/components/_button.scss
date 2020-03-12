@@ -1,0 +1,39 @@
+.button {
+  cursor: pointer;
+  background-color: $purple;
+  padding: 16px 41px 16px 41px;
+  border-radius: 100rem;
+  color: white;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  .button {
+    width: 80%;
+  }
+  .button-reverse {
+    background-color: white;
+    color: $purple;
+    border: 1px solid $purple;
+  }
+}
+
+@media all and (min-width: 576px) {
+  .buttons {
+    .button {
+      width: 50%;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .buttons {
+    .button {
+      width: 25%;
+    }
+  }
+}

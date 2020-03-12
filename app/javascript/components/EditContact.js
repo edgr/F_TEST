@@ -1,5 +1,7 @@
 import React from 'react';
 import Form from './Form';
+import BackHome from './BackHome';
+import Header from './Header';
 
 class EditContact extends React.Component {
   state = {
@@ -32,15 +34,19 @@ class EditContact extends React.Component {
   render () {
     const { first_name, last_name, email, phone_number} = this.state.contact
     return (
-      <Form
-        first_name={first_name}
-        last_name={last_name}
-        email={email}
-        phone_number={phone_number}
-        updateContact={this.updateContact}
-        title="Edit contact"
-        value="Update Contact"
-      />
+      <div className="main">
+        <Header title={`edit ${this.state.contact.first_name}`} />
+        <Form
+          first_name={first_name}
+          last_name={last_name}
+          email={email}
+          phone_number={phone_number}
+          updateContact={this.updateContact}
+          title="Edit contact"
+          value="Update Contact"
+        />
+        <BackHome />
+      </div>
     )
   }
 }

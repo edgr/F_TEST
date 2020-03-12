@@ -1,5 +1,7 @@
 import React from 'react';
 import ContactCard from './ContactCard'
+import Button from './Button'
+import Header from './Header'
 
 class App extends React.Component {
 
@@ -11,11 +13,6 @@ class App extends React.Component {
     fetch('/api/v1/contacts.json')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ contacts: data }) });
-  }
-
-  newContact = (event) => {
-    event.preventDefault();
-    this.props.history.push(`/new-contact`)
   }
 
   render () {
@@ -33,12 +30,12 @@ class App extends React.Component {
       )
     })
     return (
-      <div>
-        <h1>Your contacts!</h1>
+      <div className="main">
+        <Header title={"contacts"} />
         <div className="contacts">
           {contacts}
         </div>
-        <a onClick={this.newContact}>Add new contact</a>
+        <Button history={this.props.history} />
       </div>
     )
   }
