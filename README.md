@@ -1,25 +1,19 @@
-# README
+# VIEW ONLINE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://factorial-test.herokuapp.com/
 
-Things you may want to cover:
+# SETUP ON YOUR MACHINE
 
-* Ruby version
+clone the repository to your local machine
 
-* System dependencies
+run `bundle` or `bundle install`
 
-* Configuration
+run `rails db:create db:migrate db:seed`
 
-* Database creation
+run `rspec` to view test suite
 
-* Database initialization
+run `rails s` to browse in localhost
 
-* How to run the test suite
+# QUESTIONS?
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# F_TEST
+email me at __edouard.garret@gmail.com__
