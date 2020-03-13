@@ -10,7 +10,12 @@ class Api::V1::ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params)
+    @contact = Contact.new(contact_params)
+    if @contact.save
+      render json: @contact, status: :created
+    else
+      render json: @contact.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -19,7 +24,11 @@ class Api::V1::ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
-    @contact.update(contact_params)
+    if @contact.update(contact_params)
+      render json: @contact
+    else
+      render json: @contact.errors, status: :unprocessable_entity
+    end
   end
 
   private

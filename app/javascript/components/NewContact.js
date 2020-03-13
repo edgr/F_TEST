@@ -19,8 +19,13 @@ class NewContact extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: body
-    }).then((response) => {return response.json()});
-    this.props.history.push(`/`);
+    }).then((response) => {
+      if (response.status == 422) {
+        alert('this email has been taken or it has a wrong format')
+      } else {
+        this.props.history.push(`/`);
+      }
+    });
   }
 
   render () {

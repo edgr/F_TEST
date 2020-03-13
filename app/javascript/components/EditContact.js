@@ -27,8 +27,13 @@ class EditContact extends React.Component {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: body
+    }).then((response) => {
+      if (response.status == 422) {
+        alert('this email has been taken or it has a wrong format')
+      } else {
+        this.props.history.push(`/`);
+      }
     });
-    this.props.history.push(`/`);
   }
 
   render () {
