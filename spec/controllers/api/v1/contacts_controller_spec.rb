@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::ContactsController, type: :controller do
-  describe 'GET index' do
+  describe 'GET all contacts' do
     it 'returns http success response' do
       get :index
       expect(response.status).to eq 200
@@ -18,7 +18,7 @@ RSpec.describe Api::V1::ContactsController, type: :controller do
       expect(json.length).to eq(5)
     end
   end
-  describe 'GET show' do
+  describe 'GET one contact' do
     it 'returns http success response' do
       contact = create(:contact)
       get :show, params: { id: contact.id }
@@ -34,7 +34,7 @@ RSpec.describe Api::V1::ContactsController, type: :controller do
       expect(json['phone_number']).to eq('123456789')
     end
   end
-  describe 'POST create' do
+  describe 'POST new contact' do
     describe 'contact is created' do
       it 'adds a contact to the database' do
         initial_count = Contact.count
@@ -146,7 +146,7 @@ RSpec.describe Api::V1::ContactsController, type: :controller do
       end
     end
   end
-  describe 'DELETE' do
+  describe 'DELETE contact' do
     before(:each) do
       5.times { create(:other_contact) }
       contact = Contact.last
@@ -160,7 +160,7 @@ RSpec.describe Api::V1::ContactsController, type: :controller do
       expect(response.status).to eq 204
     end
   end
-  describe 'UPDATE' do
+  describe 'UPDATE contact' do
     describe 'contact is updated' do
       before(:each) do
         @contact = create(:contact)
